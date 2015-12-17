@@ -1,0 +1,20 @@
+<h1>All the Super Heroes</h1>
+
+<%= form_for @super_heroe do |f| %>
+  <%= f.text_field :name, placeholder: 'Name' %>
+  <%= f.text_field :superpower, placeholder: 'Superpower' %>
+  <%= f.submit "Create!" %>
+<% end %>
+
+
+<ul id="superheroes">
+  <% @super_heroes.each do |sh| %>
+    <li class="superhero">
+      <label for="">Name:</label>
+      <span class="sh-name"><%= sh.name %></span>
+      <label for="">Superpower:</label>
+      <span class="sh-superpower"><%= sh.superpower %></span>
+      <%= link_to "Destroy", super_hero_path(sh), method: :delete %>
+    </li>
+  <% end %>
+</ul>
